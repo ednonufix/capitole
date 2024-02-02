@@ -1,0 +1,24 @@
+name: Challenge Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'liberica'
+          java-version: '21.0.2'
+          java-package: 'jdk+fx'
+
+      - name: Test
+        run: gradle clean test
