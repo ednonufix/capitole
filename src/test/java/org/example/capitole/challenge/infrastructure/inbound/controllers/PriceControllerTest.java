@@ -31,7 +31,7 @@ class PriceControllerTest extends AbstractIntegrationTest {
 
         String content = """
                          {
-                           "date": "2020-06-14 10:00:00",
+                           "date": "2020-06-14T10:00:00",
                            "productId": 35455,
                            "brandId": 1
                          }
@@ -53,7 +53,7 @@ class PriceControllerTest extends AbstractIntegrationTest {
 
         String content = """
                          {
-                           "date": "2020-06-14 16:00:00",
+                           "date": "2020-06-14T16:00:00",
                            "productId": 35455,
                            "brandId": 1
                          }
@@ -75,7 +75,7 @@ class PriceControllerTest extends AbstractIntegrationTest {
 
         String content = """
                          {
-                           "date": "2020-06-14 21:00:00",
+                           "date": "2020-06-14T21:00:00",
                            "productId": 35455,
                            "brandId": 1
                          }
@@ -97,7 +97,7 @@ class PriceControllerTest extends AbstractIntegrationTest {
 
         String content = """
                          {
-                           "date": "2020-06-15 10:00:00",
+                           "date": "2020-06-15T10:00:00",
                            "productId": 35455,
                            "brandId": 1
                          }
@@ -119,7 +119,7 @@ class PriceControllerTest extends AbstractIntegrationTest {
 
         String content = """
                          {
-                           "date": "2020-06-16 21:00:00",
+                           "date": "2020-06-16T21:00:00",
                            "productId": 35455,
                            "brandId": 1
                          }
@@ -141,7 +141,7 @@ class PriceControllerTest extends AbstractIntegrationTest {
 
         String content = """
                          {
-                           "date": "2020-06-14d 16:00:00",
+                           "date": "2020-06-14dT16:00:00",
                            "productId": 35455,
                            "brandId": 1
                          }
@@ -153,8 +153,8 @@ class PriceControllerTest extends AbstractIntegrationTest {
             .andExpect(jsonPath("$.message", is("Malformed JSON request")))
             .andExpect(jsonPath("$.debugMessage", is("""
                                                      JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` \
-                                                     from String "2020-06-14d 16:00:00": Failed to deserialize java.time.LocalDateTime: \
-                                                     (java.time.format.DateTimeParseException) Text '2020-06-14d 16:00:00' \
+                                                     from String "2020-06-14dT16:00:00": Failed to deserialize java.time.LocalDateTime: \
+                                                     (java.time.format.DateTimeParseException) Text '2020-06-14dT16:00:00' \
                                                      could not be parsed at index 10\
                                                      """)))
             .andReturn().getResponse().getContentAsString();
