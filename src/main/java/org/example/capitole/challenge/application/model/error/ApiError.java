@@ -11,7 +11,7 @@ import java.time.ZoneOffset;
 public class ApiError {
 
     private final HttpStatus status;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy'T'hh:mm:ss")
     private final LocalDateTime timestamp;
     private final String message;
     private final String debugMessage;
