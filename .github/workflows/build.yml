@@ -18,7 +18,7 @@ jobs:
         with:
           distribution: 'liberica'
           java-version: '21.0.2'
-          java-package: 'jre'
+          java-package: 'jdk'
 
       - name: Test
         run: gradle clean test
